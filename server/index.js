@@ -2,17 +2,16 @@ import express from "express"
 import bodyParser from "body-parser"
 import mongoose from "mongoose"
 import cors from "cors"
+import postRouter from "./routes/posts.js"
+//commit 3 creating routes for new application. 
 
-//connect to the database 
-//create a mongodb cluster
-//setup the models and create documents
 
 const app = express();
 
 app.use(bodyParser.json({ limit: "30mb", extended: true }));
 app.use(bodyParser.urlencoded({ limit: "30mb", extended: true }));
 app.use(cors());
-
+app.use('/posts', postRouter);
 //contect to database mongo atlas 
 
 const CONNECTION_URL = 'mongodb+srv://root:agarwal1202@mflix.yoqme.mongodb.net/myFirstDatabase?retryWrites=true&w=majority'
